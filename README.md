@@ -20,7 +20,7 @@ const width = 5
 const height = 10
 const gray = createGray( width, height )
 
-const data = new Uint8ClampedArray( width, height )
+const data = new Uint8ClampedArray( width * height )
 
 data.fill( 127 )
 
