@@ -1,0 +1,22 @@
+import { GrayData, CreateImage } from '@rgba-image/common';
+export declare const createGray: (width: number, height: number, data?: Uint8ClampedArray | undefined) => GrayData;
+export declare type Channel = 0 | 1 | 2 | 3;
+export declare const RED_CHANNEL = 0;
+export declare const GREEN_CHANNEL = 1;
+export declare const BLUE_CHANNEL = 2;
+export declare const ALPHA_CHANNEL = 3;
+export declare const extractChannel: (source: ImageData, channel: Channel, sx?: number, sy?: number, sw?: number, sh?: number) => GrayData;
+export declare const extractRed: (source: ImageData, sx?: number, sy?: number, sw?: number, sh?: number) => GrayData;
+export declare const extractGreen: (source: ImageData, sx?: number, sy?: number, sw?: number, sh?: number) => GrayData;
+export declare const extractBlue: (source: ImageData, sx?: number, sy?: number, sw?: number, sh?: number) => GrayData;
+export declare const extractAlpha: (source: ImageData, sx?: number, sy?: number, sw?: number, sh?: number) => GrayData;
+export declare type ChannelData = [GrayData, GrayData, GrayData, GrayData];
+export declare const extractRgba: (source: ImageData, sx?: number, sy?: number, sw?: number, sh?: number) => [GrayData, GrayData, GrayData, GrayData];
+export declare const maskImage: (source: GrayData, dest: ImageData, sx?: number, sy?: number, sw?: number, sh?: number, dx?: number, dy?: number) => void;
+export declare const fromAverage: (source: ImageData, sx?: number, sy?: number, sw?: number, sh?: number) => GrayData;
+export declare const fromLightness: (source: ImageData, sx?: number, sy?: number, sw?: number, sh?: number) => GrayData;
+export declare const GrayToImageFactory: (createImage: CreateImage) => {
+    grayToImage: (source: GrayData, sx?: number, sy?: number, sw?: number, sh?: number, alpha?: number) => ImageData;
+    combineChannels: (red: GrayData, green: GrayData, blue: GrayData, alpha: GrayData) => ImageData;
+};
+export declare const grayToImage: (source: GrayData, sx?: number, sy?: number, sw?: number, sh?: number, alpha?: number) => ImageData, combineChannels: (red: GrayData, green: GrayData, blue: GrayData, alpha: GrayData) => ImageData;
